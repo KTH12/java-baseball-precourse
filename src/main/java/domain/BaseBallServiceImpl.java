@@ -1,10 +1,14 @@
 package domain;
 
 import infrastructure.BallsFactoryImpl;
+import infrastructure.BaseBallResultServiceImpl;
+
+import java.util.List;
 
 public class BaseBallServiceImpl implements BaseBallService {
 	GamerInfo gamerInfo = new GamerInfo();
 	BallsFactory ballsFactory = new BallsFactoryImpl();
+	BaseBallResultService baseBallResultService;
 
 	@Override public void generateComputerInfo() {
 		gamerInfo.setComputerBalls(ballsFactory.registerRandomBalls());
@@ -15,7 +19,9 @@ public class BaseBallServiceImpl implements BaseBallService {
 	}
 
 	@Override public BaseBallResult isSuccess() {
-		// Todo 스트라이크, 볼 체크 함수 추가
-		return null;
+		List<Integer> computerBalls = gamerInfo.getComputerBalls().numberToArray();
+		List<Integer> userBalls = gamerInfo.getUserBalls().numberToArray();
+		baseBallResultService = new BaseBallResultServiceImpl(computerBalls, userBalls);
+		return baseBallResultService.strikeAndBallChecker();
 	}
 }

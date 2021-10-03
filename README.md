@@ -211,7 +211,7 @@
 - [ ] BaseBallServiceImpl 구현
     - [X] 컴퓨터 Balls 생성 함수
     - [X] 유저 Balls 생성 함수
-    - [ ] 결과 검증 함수
+    - [X] 결과 검증 함수
 
 
 - [X] BallsFactoryImpl 구현
@@ -219,8 +219,8 @@
     - [X] 입력받은 문자열 -> Balls 생성 함수
 
 
-- [ ] BaseBallResultServiceImpl 구현
-    - [ ] 스트라이크 , 볼 카운트를 검증 로직 구현
+- [X] BaseBallResultServiceImpl 구현
+    - [X] 스트라이크 , 볼 카운트를 검증 로직 구현
 
 
 - [ ] GameFacade 구현
