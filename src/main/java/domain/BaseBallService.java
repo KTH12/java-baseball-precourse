@@ -1,9 +1,9 @@
 package domain;
 
 public interface BaseBallService {
-	void generateComputerInfo();
+    void generateComputerInfo();
 
-	void generateUserInfo(String userInput);
+    void generateUserInfo(String userInput);
 
-	BaseBallResult isSuccess();
+    BaseBallResult isSuccess();
 }

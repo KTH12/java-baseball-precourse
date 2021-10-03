@@ -2,7 +2,7 @@ package domain;
 
 public interface BallsFactory {
 
-	Balls registerRandomBalls();
+    Balls registerRandomBalls();
 
-	Balls registerInputBalls(String input);
+    Balls registerInputBalls(String input);
 }
