@@ -214,9 +214,9 @@
     - [ ] 결과 검증 함수
 
 
-- [ ] BallsFactoryImpl 구현
-    - [ ] 랜덤 Balls 생성 함수
-    - [ ] 입력받은 문자열 -> Balls 생성 함수
+- [X] BallsFactoryImpl 구현
+    - [X] 랜덤 Balls 생성 함수
+    - [X] 입력받은 문자열 -> Balls 생성 함수
 
 
 - [ ] BaseBallResultServiceImpl 구현
