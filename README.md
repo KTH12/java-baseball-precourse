@@ -209,8 +209,8 @@
 
 
 - [ ] BaseBallServiceImpl 구현
-    - [ ] 컴퓨터 Balls 생성 함수
-    - [ ] 유저 Balls 생성 함수
+    - [X] 컴퓨터 Balls 생성 함수
+    - [X] 유저 Balls 생성 함수
     - [ ] 결과 검증 함수
 
 

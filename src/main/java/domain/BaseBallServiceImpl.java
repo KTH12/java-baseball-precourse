@@ -1,16 +1,17 @@
 package domain;
 
+import infrastructure.BallsFactoryImpl;
+
 public class BaseBallServiceImpl implements BaseBallService {
 	GamerInfo gamerInfo = new GamerInfo();
+	BallsFactory ballsFactory = new BallsFactoryImpl();
 
 	@Override public void generateComputerInfo() {
-		// Todo 랜덤 숫자 Balls 생성 함수 추가
-		gamerInfo.setComputerBalls(new Balls());
+		gamerInfo.setComputerBalls(ballsFactory.registerRandomBalls());
 	}
 
 	@Override public void generateUserInfo(String userInput) {
-		// Todo 유저 입력 받은 값으로 Balls 생성 함수 추가
-		gamerInfo.setUserBalls(new Balls());
+		gamerInfo.setUserBalls(ballsFactory.registerInputBalls(userInput));
 	}
 
 	@Override public BaseBallResult isSuccess() {
