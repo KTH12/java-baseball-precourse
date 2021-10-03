@@ -235,5 +235,8 @@
 
 
 - [ ] 테스트 구현
+    - [X] Ball 모델 테스트 작성
+    - [X] Balls 모델 테스트 작성
+    - [X] BallsFactoryImpl 구현체 테스트 작성
 
 ---

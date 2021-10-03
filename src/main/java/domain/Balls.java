@@ -25,7 +25,7 @@ public class Balls {
 		}
 	}
 
-	private List<Integer> numberToArray() {
+	public List<Integer> numberToArray() {
 		List<Integer> numbers = new ArrayList<>();
 		for (int i = 0; i < balls.size(); i++) {
 			numbers.add(balls.get(i).getNumber());
@@ -34,4 +34,7 @@ public class Balls {
 		return numbers;
 	}
 
+	public List<Ball> getBalls() {
+		return balls;
+	}
 }
