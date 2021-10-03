@@ -201,7 +201,7 @@
     - [X] validDuplicate (중복 입력 검증 함수)
 
 
-- [ ] GamerInfo 모델 구현
+- [X] GamerInfo 모델 구현
 
 
 - [ ] BaseBallResult 모델 구현
