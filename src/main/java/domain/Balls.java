@@ -1,5 +1,7 @@
 package domain;
 
+import console.Output;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +17,13 @@ public class Balls {
 	private void validSize() {
 		int MAX_SIZE = 3;
 		if (balls.size() > MAX_SIZE) {
-			throw new IllegalArgumentException("최대 3개까지 공을 가질 수 있습니다.");
+			throw new IllegalArgumentException(Output.BALLS_SIZE_EXCEPTION_MESSAGE);
 		}
 	}
 
 	private void validDuplicate(Ball ball) {
 		if (numberToArray().contains(ball.getNumber())) {
-			throw new IllegalArgumentException("서로 다른 숫자를 입력 하셔야합니다.");
+			throw new IllegalArgumentException(Output.BAllS_DUPLICATE_MESSAGE);
 		}
 	}
 
