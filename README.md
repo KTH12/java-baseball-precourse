@@ -204,8 +204,8 @@
 - [X] GamerInfo 모델 구현
 
 
-- [ ] BaseBallResult 모델 구현
-    - [ ] 스트라이크, 볼 증가시키는 함수
+- [X] BaseBallResult 모델 구현
+    - [X] 스트라이크, 볼 증가시키는 함수
 
 
 - [ ] BaseBallServiceImpl 구현
