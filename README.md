@@ -196,9 +196,9 @@
     - [X] validBallNumber (숫자 검증 함수)
 
 
-- [ ] Balls 모델 구현
-    - [ ] validSize(총 숫자 사이즈 검증 함수)
-    - [ ] validDuplicate (중복 입력 검증 함수)
+- [X] Balls 모델 구현
+    - [X] validSize(총 숫자 사이즈 검증 함수)
+    - [X] validDuplicate (중복 입력 검증 함수)
 
 
 - [ ] GamerInfo 모델 구현
