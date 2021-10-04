@@ -31,6 +31,7 @@ public class BaseBallGame {
         try {
             Output.printRequireNumberMessage();
             String userInput = Input.userInput();
+            Output.printMessage(userInput);
             baseBallService.generateUserInfo(userInput);
         } catch (InvalidParamException e) {
             Output.printExceptionMessage(e.getMessage());

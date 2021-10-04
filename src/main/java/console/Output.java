@@ -8,7 +8,7 @@ public class Output {
     }
 
     public static void printRequireNumberMessage() {
-        System.out.println(CommonCode.REQUIRE_NUMBER_MESSAGE.getMessage());
+        System.out.print(CommonCode.REQUIRE_NUMBER_MESSAGE.getMessage());
     }
 
     public static void printGameComplete() {
