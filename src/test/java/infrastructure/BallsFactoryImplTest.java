@@ -1,11 +1,11 @@
 package infrastructure;
 
 import baseball.Application;
+import common.exception.InvalidParamException;
 import domain.Balls;
 import domain.BallsFactory;
 import nextstep.test.NSTest;
 import nextstep.utils.Randoms;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
 
@@ -55,9 +56,8 @@ class BallsFactoryImplTest extends NSTest {
                 .when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
                 .thenReturn(number1, number2, number3);
 
-            Assertions.assertThatThrownBy(() ->
-                ballsFactory.registerInputBalls(str))
-                .isInstanceOf(IllegalArgumentException.class);
+            assertThatExceptionOfType(InvalidParamException.class)
+                .isThrownBy(() -> ballsFactory.registerInputBalls(str));
         }
     }
 
@@ -69,10 +69,8 @@ class BallsFactoryImplTest extends NSTest {
             mockRandoms
                 .when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
                 .thenReturn(number1, number2, number3);
-
-            Assertions.assertThatThrownBy(() ->
-                ballsFactory.registerInputBalls(str))
-                .isInstanceOf(IllegalArgumentException.class);
+            assertThatExceptionOfType(InvalidParamException.class)
+                .isThrownBy(() -> ballsFactory.registerInputBalls(str));
         }
     }
 
