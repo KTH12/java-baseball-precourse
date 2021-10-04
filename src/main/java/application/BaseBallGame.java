@@ -1,10 +1,12 @@
 package application;
 
+import common.exception.InvalidParamException;
+import common.response.CommonCode;
+import console.Input;
 import console.Output;
 import domain.BaseBallResult;
 import domain.BaseBallService;
 import domain.BaseBallServiceImpl;
-import nextstep.utils.Console;
 
 public class BaseBallGame {
     private final BaseBallService baseBallService = new BaseBallServiceImpl();
@@ -28,9 +30,10 @@ public class BaseBallGame {
     private void gameProcess() {
         try {
             Output.printRequireNumberMessage();
-            String userInput = Console.readLine();
+            String userInput = Input.userInput();
+            Output.printMessage(userInput);
             baseBallService.generateUserInfo(userInput);
-        } catch (IllegalArgumentException e) {
+        } catch (InvalidParamException e) {
             Output.printExceptionMessage(e.getMessage());
             gameProcess();
         }
@@ -38,7 +41,7 @@ public class BaseBallGame {
 
     private void printBallMatchResult(int strikeCount, int ballCount) {
         if (strikeCount == COMPLETE_STRIKE_COUNT) {
-            Output.printMessage(strikeCount + Output.STRIKE_MESSAGE);
+            Output.printMessage(strikeCount + CommonCode.STRIKE.getMessage());
             Output.printGameComplete();
             return;
         }
@@ -48,6 +51,6 @@ public class BaseBallGame {
             return;
         }
 
-        Output.printMessage(strikeCount + Output.STRIKE_MESSAGE + ballCount + Output.BALL_MESSAGE);
+        Output.printMessage(strikeCount + CommonCode.STRIKE.getMessage() + ballCount + CommonCode.BALL.getMessage());
     }
 }

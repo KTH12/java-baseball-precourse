@@ -1,13 +1,14 @@
 package domain;
 
 import baseball.Application;
+import common.exception.InvalidParamException;
 import nextstep.test.NSTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 class BallTest extends NSTest {
@@ -26,7 +27,7 @@ class BallTest extends NSTest {
 
     @Test
     void 볼_생성_실패() {
-        assertThatIllegalArgumentException().isThrownBy(() -> new Ball(20));
+        assertThatExceptionOfType(InvalidParamException.class).isThrownBy(() -> new Ball(20));
     }
 
     @AfterEach
