@@ -1,6 +1,7 @@
 package domain;
 
-import console.Output;
+import common.exception.InvalidParamException;
+import common.response.ErrorCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +18,13 @@ public class Balls {
     private void validSize() {
         int MAX_SIZE = 3;
         if (balls.size() > MAX_SIZE) {
-            throw new IllegalArgumentException(Output.BALLS_SIZE_EXCEPTION_MESSAGE);
+            throw new InvalidParamException(ErrorCode.COMMON_BALLS_SIZE_EXCEPTION);
         }
     }
 
     private void validDuplicate(Ball ball) {
         if (numberToArray().contains(ball.getNumber())) {
-            throw new IllegalArgumentException(Output.BAllS_DUPLICATE_MESSAGE);
+            throw new InvalidParamException(ErrorCode.COMMON_BAllS_DUPLICATE_EXCEPTION);
         }
     }
 

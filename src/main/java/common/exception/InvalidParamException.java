@@ -1,4 +1,4 @@
-package common.response.exception;
+package common.exception;
 
 import common.response.ErrorCode;
 
