@@ -127,4 +127,11 @@
     - [X] Balls 모델 테스트 작성
     - [X] BallsFactoryImpl 구현체 테스트 작성
 
+### 리팩토링
+
+- [ ] Output 메시지 정의를 common 패키지로 분리하기
+
+- [ ] Exception 을 도메인 단위로 분리 관리하기
+    - [ ] BaseBallException 만들기
+
 ---
