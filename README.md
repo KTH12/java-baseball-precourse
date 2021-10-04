@@ -129,9 +129,9 @@
 
 ### 리팩토링
 
-- [ ] Output 메시지 정의를 common 패키지로 분리하기
+- [X] Output 메시지 정의를 common 패키지로 분리하기
 
-- [ ] Exception 을 도메인 단위로 분리 관리하기
-    - [ ] BaseBallException 만들기
-    
+- [X] Exception 을 도메인 단위로 분리 관리하기
+    - [X] BaseBallException 만들기
+
 ---
