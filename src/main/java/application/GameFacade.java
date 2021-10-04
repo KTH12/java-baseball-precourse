@@ -1,7 +1,9 @@
 package application;
 
+import common.exception.InvalidParamException;
+import common.response.CommonCode;
+import console.Input;
 import console.Output;
-import nextstep.utils.Console;
 
 public class GameFacade {
 
@@ -13,9 +15,25 @@ public class GameFacade {
     }
 
     private boolean isCorrectContinueQuestions() {
-        String CONiNUE_MESSAGE = "1";
         Output.printContinueMessage();
-        return Console.readLine().equals(CONiNUE_MESSAGE);
+
+        try {
+            return resumeRequireToUser();
+        } catch (InvalidParamException e) {
+            Output.printExceptionMessage(e.getMessage());
+            return isCorrectContinueQuestions();
+        }
     }
 
+    private boolean resumeRequireToUser() {
+        String message = Input.userInput();
+
+        if (CommonCode.GAME_STOP.getMessage().equals(message)) {
+            return false;
+        }
+        if (CommonCode.GAME_RESTART.getMessage().equals(message)) {
+            return true;
+        }
+        throw new InvalidParamException();
+    }
 }
