@@ -1,5 +1,6 @@
 package baseball;
 
+import common.response.ErrorCode;
 import nextstep.test.NSTest;
 import nextstep.utils.Randoms;
 import org.junit.jupiter.api.AfterEach;
@@ -39,13 +40,34 @@ public class ApplicationTest extends NSTest {
     }
 
     @Test
+    void 정답_후_게임종료() {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+                .thenReturn(7, 1, 3);
+            run("713", "2");
+            verify("3스트라이크", "게임 끝");
+        }
+    }
+
+    @Test
+    void 정답_후_재진행_잘못입력() {
+        try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
+            mockRandoms
+                .when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+                .thenReturn(4, 8, 9);
+            running("489", "3");
+            verify("3스트라이크", ErrorCode.COMMON_INVALID_PARAMETER.getErrorMsg());
+        }
+    }
+
+    @Test
     void 중복_입력_실패() {
         try (final MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class)) {
             mockRandoms
                 .when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
                 .thenReturn(1, 3, 5);
             running("233");
-            verify("[ERROR]서로 다른 숫자를 입력 하셔야합니다.");
+            verify(ErrorCode.COMMON_BAllS_DUPLICATE_EXCEPTION.getErrorMsg());
         }
     }
 

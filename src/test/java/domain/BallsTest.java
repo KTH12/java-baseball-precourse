@@ -1,6 +1,8 @@
 package domain;
 
 import baseball.Application;
+import common.exception.InvalidParamException;
+import common.response.ErrorCode;
 import nextstep.test.NSTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class BallsTest extends NSTest {
 
@@ -35,18 +37,18 @@ class BallsTest extends NSTest {
     void Balls_중복_실패(int number1, int number2, int number3) {
         Balls balls = new Balls();
 
-        assertThatIllegalArgumentException().isThrownBy(() -> {
+        assertThatExceptionOfType(InvalidParamException.class).isThrownBy(() -> {
             balls.add(new Ball(number1));
             balls.add(new Ball(number2));
             balls.add(new Ball(number3));
-        });
+        }).withMessage(ErrorCode.COMMON_BAllS_DUPLICATE_EXCEPTION.getErrorMsg());
     }
 
     @ParameterizedTest
     @CsvSource(value = {"1, 2, 3, 4"})
     void Balls_사이즈_오버_실패(int number1, int number2, int number3, int number4) {
         Balls balls = new Balls();
-        assertThatIllegalArgumentException().isThrownBy(() -> {
+        assertThatExceptionOfType(InvalidParamException.class).isThrownBy(() -> {
             balls.add(new Ball(number1));
             balls.add(new Ball(number2));
             balls.add(new Ball(number3));
