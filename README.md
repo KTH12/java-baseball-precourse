@@ -57,6 +57,14 @@
     │   ├── GameFacade        # 게임 관리 
     │   └── BaseBallGame      # 야구 게임 프로세스
     │
+    ├── common
+    │   ├── exception         
+    │   │   ├── BaseException                 
+    │   │   └── InvalidParamException   # 도메인 예외처리 함수
+    │   └── response          
+    │       ├── CommonCode              # 사용자 출력 메시지 ENUM
+    │       └── ErrorCode               # 에러 코드 메시지 ENUM
+    │
     ├── domain
     │   ├── Ball                   # 야구공 모델(1~9 숫자를 가진 객체)
     │   ├── Balls                  # Ball List를 가진 모델
@@ -71,7 +79,8 @@
     │   ├── BallsFactoryImpl            # BaseBallService 구현체
     │   └── BaseBallResultServiceImpl   # BaseBallResultService 구현체
     │
-    ├── console  
+    ├── console
+    │   ├── Input                 # 사용자 입력 담당
     │   └── Output                # 사용자에게 메시지 출력 담당
     └── ...
 
