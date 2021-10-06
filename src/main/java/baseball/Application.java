@@ -1,10 +1,10 @@
 package baseball;
 
-import application.GameFacade;
+import application.GameController;
 
 public class Application {
     public static void main(String[] args) {
-        GameFacade gameFacade = new GameFacade();
-        gameFacade.run();
+        GameController gameController = new GameController();
+        gameController.run();
     }
 }

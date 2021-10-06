@@ -5,7 +5,7 @@ import common.response.CommonCode;
 import console.Input;
 import console.Output;
 
-public class GameFacade {
+public class GameController {
 
     public void run() {
         do {
